@@ -60,4 +60,14 @@ install Docker
 
    sudo apt install docker.io
 
+   sudo su -
+
+      providing the permissions to jenkins user and docker user to docker deamon.
+
+      usermod -aG docker jenkins
+      usermod -aG docker ubuntu
+      systemctl restart docker
+
+      Restart jennkins after installing any tool or plugin in jenkins server.
+
    
