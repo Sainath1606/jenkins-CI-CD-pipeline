@@ -52,4 +52,12 @@ Installing sonarqube
 
    copy the ip address of instance along with sonarqube port to access sonar web page https://<ipaddress>:9000
 
+
+install Docker
+--------------
+
+   sudo apt update
+
+   sudo apt install docker.io
+
    
