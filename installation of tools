@@ -1,0 +1,55 @@
+once open the terminal need to update the package 
+------------------------------------------------- 
+   
+ Sudo apt update
+
+Installation of java 
+--------------------   
+   sudo apt update
+   sudo apt install openjdk-17-jre
+
+
+Installing Maven
+---------------- 
+     sudo apt install Maven
+     Maven home: /usr/share/maven
+
+
+Install jenkins
+---------------
+   Sudo curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null  
+
+   sudo echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]  https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+   Sudo apt update
+
+   apt install jenkins
+
+   systemctl start jenkins
+
+   systemctl enable jenkins
+
+
+Installing sonarqube
+--------------------
+   sudo apt install unzip
+
+   adduser soanrqube (adding this user because sonarqube will not run with root user)
+
+   sudo su - sonarqube
+
+   wget wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.4.0.54424.zip
+    
+   unzip "sonarqube-9.4.0.54424.zip"
+
+   chmod -R 755 </home/sonarqube/sonarqube-9.4.0.54424>chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424
+   
+   chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424
+
+   cd /home/sonarqube/sonarqube-9.4.0.54424/bin/linux-x86-64/
+
+   ./sonar.sh start
+
+   copy the ip address of instance along with sonarqube port to access sonar web page https://<ipaddress>:9000
+
+   
