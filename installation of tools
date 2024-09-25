@@ -8,12 +8,30 @@ Installation of java
    sudo apt update
    sudo apt install openjdk-17-jre
 
+Git stage issues in pipeline
+----------------------------
+   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
+
 
 Installing Maven
 ---------------- 
      sudo apt install Maven
      Maven home: /usr/share/maven
 
+     
+     issue in mave stage faced in pipeline
+     1. Build failed becuse of mvn: command not found 
+        
+        solution : check the evn variable whether hoome path od java and maven defined correctly or not if still facing same issue 
+                   creat a soft link like below 
+                   cd /usr/bin
+                   ln -s /opt/maven/bin/mvn mvn
+                   try build again
+                    
+     2. pom.xml file not found
+       check pom.xml is present or not if not present please create a pom.xml in /var/lib/jenkins/workspace/pom.xml
+
+   
 
 Install jenkins
 ---------------
@@ -42,7 +60,7 @@ Installing sonarqube
     
    unzip "sonarqube-9.4.0.54424.zip"
 
-   chmod -R 755 </home/sonarqube/sonarqube-9.4.0.54424>chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424
+   chmod -R 755 /home/sonarqube/sonarqube-9.4.0.54424
    
    chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424
 
@@ -51,6 +69,16 @@ Installing sonarqube
    ./sonar.sh start
 
    copy the ip address of instance along with sonarqube port to access sonar web page https://<ipaddress>:9000
+
+
+   pipeline steps:
+   --------------
+   # generate the token in sonarqube to confiure with jenkins
+   #go to soanrqube-my account-security here give token name  and copy the token 
+   soanrqube credentials need to set in manage jenkins-credentials-system-global credentials
+   select type as secret text
+   give (username - jenkins ; text-  paste generated token)
+   jenkins - 8c25f32817e133b2631abc91e138cd662bc68e05
 
 
 install Docker
@@ -69,5 +97,8 @@ install Docker
       systemctl restart docker
 
       Restart jennkins after installing any tool or plugin in jenkins server.
+
+
+
 
    
